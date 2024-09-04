@@ -1,0 +1,85 @@
+﻿
+@model User
+@{
+
+}
+<!-- Google Fonts - Roboto -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-f46F6yZxv1T2+I7BZmSM8wc/83mK8FK+F5gWgJWj7gax0aW31eZB+Di49E7fGk2K0DhN1LRKabE6hjPCKmJw7g==" crossorigin="anonymous" />
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-- Custom Styles -->
+<style>
+    /* Center align the form */
+    .center-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    /* Apply Roboto font to body */
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    /* Style form elements */
+    .form-group label {
+        font-weight: 500; /* Medium */
+    }
+</style>
+
+
+    <div class="container">
+        <div class="row center-form">
+            <div class="col-md-6">
+                <h2>Login</h2>
+                <form asp-page-handler="Login" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="Email"><i class="fas fa-envelope"></i> Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input asp-for="Email" class="form-control form-control-sm" />
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Password"><i class="fas fa-lock"></i> Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            </div>
+                            <input asp-for="Password" type="password" class="form-control form-control-sm" />
+                        </div>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    
+                    <a asp-area="" asp-controller="Home" asp-action="Registration" class="btn btn-success ">Create New Account</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+pbzo5sLCYBwk6cMlX6BlM2Fm/rR5jN2xX1" crossorigin="anonymous">
+    </script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

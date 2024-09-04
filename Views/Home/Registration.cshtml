@@ -1,0 +1,64 @@
+﻿@model project.Models.User
+
+@{
+    ViewData["Title"] = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Center align the form */
+    .center-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    /* Apply Roboto font to body */
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
+
+
+    <div class="container">
+        <div class="center-form">
+            <div class="col-md-6">
+                <h1 class="text-center">Registration</h1>
+                <h4 class="text-center">User</h4>
+                <hr />
+                <form asp-action="Registration" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="FullName" class="control-label">Full Name</label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label">Password</label>
+                        <input asp-for="Password" type="password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group text-center mt-1">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+pbzo5sLCYBwk6cMlX6BlM2Fm/rR5jN2xX1" crossorigin="anonymous">
+    </script>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

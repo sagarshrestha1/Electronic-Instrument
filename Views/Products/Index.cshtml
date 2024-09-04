@@ -1,0 +1,49 @@
+﻿@model List<Product>
+@{
+if(@ViewBag.Setsession!=null){
+
+<h2 class="text-center mb-5">List of Products</h2>
+
+    <div class="col">
+
+    </div>
+
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Image</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var product in Model)
+        {
+        <tr>
+        
+        <td>@product.Name</td>
+        <td>@product.Brand</td>
+        <td>@product.Category</td>
+        <td>@(product.Price)</td>
+        <td><img src="/Products/@product.ImageFileName"width="100"/></td>
+        
+        
+        </tr>
+        }
+    </tbody>
+</table>
+<script>
+   
+        </script>
+    }
+    else
+    {
+        <script>
+            window.location.href = '/Home/Login';
+        </script>
+    }
+}
